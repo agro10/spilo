@@ -4,8 +4,26 @@ Agro10 Spilo: HA PostgreSQL Clusters with Docker
 
 Based on zalando/spilo
 
-[![Publish multiarch images on ghcr.io](https://github.com/agro10/spilo/actions/workflows/publish-ghcr-container.yaml/badge.svg?branch=master)](https://github.com/agro10/spilo/actions/workflows/publish-ghcr-container.yaml)
+.. |Maintenance yes| image:: https://img.shields.io/badge/Maintained%3F-yes-green.svg
+   :target: https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity
 
+
+.. |Publish multiarch images on ghcr.io| image:: https://github.com/agro10/spilo/actions/workflows/publish-ghcr-container.yaml/badge.svg?branch=master
+   :target: https://github.com/agro10/spilo/actions/workflows/publish-ghcr-container.yaml
+
+
+How to build the spilo image locally on MacOs M2
+------------------------------------------------
+
+1. Install docker desktop `https://docs.docker.com/desktop/mac/install/`
+2. Install docker buildx plugin `docker buildx install`
+3. Enable docker buildx plugin `docker buildx create --name mybuilder --use``
+
+> docker buildx build --tag my.domain.com/spilo-db:v2.0.0 --platform=linux/amd64 --no-cache --force-rm .
+
+
+From zalando/spilo description
+------------------------------------------------
 
 Spilo is a Docker image that provides PostgreSQL and `Patroni <https://github.com/zalando/patroni>`__ bundled together. Patroni is a template for PostgreSQL HA. Multiple Spilos can create a resilient High Available PostgreSQL cluster. For this, you'll need to start all participating Spilos with identical `etcd <https://github.com/coreos/etcd>`__ addresses and cluster names.
 

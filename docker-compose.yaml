@@ -2,8 +2,6 @@
 # docker volume create redis_data
 # docker network create backend_network
 
-version: '3'
-
 volumes:
   spilo_data:
     external: true
@@ -25,7 +23,7 @@ x-common-keys-core: &common-keys-core
 
 services:
   spilo_db:
-    image: xxxx
+    image: ghcr.io/zalando/spilo-16:3.3-p2
     restart: always
     container_name: spilo_db
     volumes:

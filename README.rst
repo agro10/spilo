@@ -19,7 +19,9 @@ How to build the spilo image locally on MacOs M2
 2. Install docker buildx plugin `docker buildx install`
 3. Enable docker buildx plugin `docker buildx create --name mybuilder --use``
 
-> docker buildx build --tag my.domain.com/spilo-db:v2.0.0 --platform=linux/amd64 --no-cache --force-rm .
+.. code-block:: bash
+
+    docker buildx build --tag my.domain.com/spilo-db:v2.0.0 --platform=linux/amd64 --no-cache --force-rm .
 
 
 From zalando/spilo description

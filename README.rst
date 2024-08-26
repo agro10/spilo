@@ -1,10 +1,15 @@
-=========================================
-Spilo: HA PostgreSQL Clusters with Docker
-=========================================
+=================================================
+Agro10 Spilo: HA PostgreSQL Clusters with Docker
+=================================================
 
-Spilo is a Docker image that provides PostgreSQL and `Patroni <https://github.com/zalando/patroni>`__ bundled together. Patroni is a template for PostgreSQL HA. Multiple Spilos can create a resilient High Available PostgreSQL cluster. For this, you'll need to start all participating Spilos with identical `etcd <https://github.com/coreos/etcd>`__ addresses and cluster names. 
+Based on zalando/spilo
 
-Spilo's name derives from სპილო [spiːlɒ], the Georgian word for "elephant."  
+[![Publish multiarch images on ghcr.io](https://github.com/agro10/spilo/actions/workflows/publish-ghcr-container.yaml/badge.svg?branch=master)](https://github.com/agro10/spilo/actions/workflows/publish-ghcr-container.yaml)
+
+
+Spilo is a Docker image that provides PostgreSQL and `Patroni <https://github.com/zalando/patroni>`__ bundled together. Patroni is a template for PostgreSQL HA. Multiple Spilos can create a resilient High Available PostgreSQL cluster. For this, you'll need to start all participating Spilos with identical `etcd <https://github.com/coreos/etcd>`__ addresses and cluster names.
+
+Spilo's name derives from სპილო [spiːlɒ], the Georgian word for "elephant."
 
 Real-World Usage and Plans
 --------------------------
@@ -87,4 +92,4 @@ Spilo welcomes questions via our `issues tracker <https://github.com/zalando/spi
 License
 -------
 
-This project uses the `Apache 2.0 license <https://github.com/zalando/spilo/blob/master/LICENSE>`__. 
+This project uses the `Apache 2.0 license <https://github.com/zalando/spilo/blob/master/LICENSE>`__.

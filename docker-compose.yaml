@@ -1,0 +1,56 @@
+# docker volume create spilo_data
+# docker volume create redis_data
+# docker network create backend_network
+
+version: '3'
+
+volumes:
+  spilo_data:
+    external: true
+  redis_data:
+    external: true
+
+networks:
+  backend_network:
+    external: true
+
+
+# Keys common to some of the core services that we always to automatically restart on failure
+x-common-keys-core: &common-keys-core
+  networks:
+    - backend_network
+  security_opt:
+    - no-new-privileges:true
+  restart: always
+
+services:
+  spilo_db:
+    image: xxxx
+    restart: always
+    container_name: spilo_db
+    volumes:
+      - spilo_data:/home/postgres
+    networks:
+      - backend_network
+    environment:
+      SPILO_PROVIDER: 'local'
+      PGUSER_SUPERUSER: postgres
+      PGPASSWORD_SUPERUSER: spilo_pwd
+      ALLOW_NOSSL: 'True'
+      PGVERSION: 14
+    ports:
+      - "5433:5432"
+
+  redis:
+    image: 'bitnami/redis:latest'
+    restart: always
+    container_name: redis
+    volumes:
+      - 'redis_data:/bitnami/redis/data'
+    networks:
+      - backend_network
+    environment:
+      ALLOW_EMPTY_PASSWORD: "no"
+      REDIS_PASSWORD: redis_pw
+    ports:
+      - "6379:6379"
